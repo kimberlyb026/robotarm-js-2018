@@ -1,6 +1,5 @@
 <html>
     <body>
-        <title>level 11</title>
         <canvas id="canvas" width="800" height="600"></canvas>
         <script src="./robot-arm.js"></script>
         <script>
@@ -9,28 +8,25 @@
             var robotArm = new RobotArm(canvas);
             
             // Het level inladen
-            robotArm.loadLevel("exercise 11");
-
-            for(i = 0; i < 9; i++) {
-                robotArm.moveRight();
-            }
-
-            for(i = 0; i < 9; i++) {
+            robotArm.loadLevel("exercise 12");
+            
+            // Jou instructies volgen hier
+    
+            for(var i = 0; i < 9; i++) {
                 robotArm.grab();
-                if(robotArm.scan() == "white") {
+                if(robotArm.scan() == "red") {
                     robotArm.moveRight();
                     robotArm.drop();
                     robotArm.moveLeft();
-                    robotArm.moveLeft();
+                    i--;
                 } else {
                     robotArm.drop();
-                    robotArm.moveLeft();
+                    robotArm.moveRight();
                 }
             }
-
             
 
-            
+
             // De door jou opgegeven instructies uitvoeren
             robotArm.run();
         </script>
